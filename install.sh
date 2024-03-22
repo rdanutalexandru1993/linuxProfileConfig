@@ -30,6 +30,15 @@ help () {
     echo "  Example:"
     echo "    $0 --module python docker"
     echo ""
+    echo "  Available scripts: "
+    echo ""
+    echo "    python - install python"
+    echo "    docker - install docker"
+    echo "    github - install and configure github"
+    echo "    envvar - set environment variables"
+    echo "    alias  - set aliases"
+    echo "    vim    - install vim"
+    echo ""
     echo "##########################################################################################"
 }
 
@@ -49,15 +58,12 @@ runInstallScript () {
 }
 
 main () {
-  
   local MODULES=($1)
 
   for M in "${MODULES[@]}"
   do 
     runInstallScript "$M"
   done
-
-
 }
 
 ####################################################################################################
