@@ -33,24 +33,40 @@ help () {
     echo "##########################################################################################"
 }
 
+runInstallScript () {
+  local SCRIPTNAME="install_$1.sh"
+
+  echo "$(date) | Running $SCRIPTNAME ... "
+
+  local SCRIPTPATH=$(find -type f -name "$SCRIPTNAME")
+  
+  if [[ -z "$SCRIPTPATH" ]]
+  then 
+    echo "$(date) | File $SCRIPTNAME does not exit ... "
+  else 
+    bash "$SCRIPTPATH"
+  fi 
+}
+
 main () {
-  local MODULE=${1}
+  
+  local MODULES=($1)
 
-  echo "$MODULE"
-
-  for m in "${MODULE[@]}"; do 
-    echo "$m"
+  for M in "${MODULES[@]}"
+  do 
+    runInstallScript "$M"
   done
+
+
 }
 
 ####################################################################################################
 ##  DEFAULT VALUES 
 ####################################################################################################
 
-while true; do
+while [[ $# -gt 0 ]]; do
     case "$1" in
         -m|--modules)
-            echo "$2"
             MODULES="$2"
             shift 2
             ;;
@@ -65,4 +81,4 @@ while true; do
     esac
 done
 
-main ${MODULE}
+main "$MODULES"
