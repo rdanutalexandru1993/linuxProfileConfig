@@ -2,7 +2,7 @@
 
 ####################################################################################################
 ##
-##  Year:        2014
+##  Year:        2024
 ##  Author:      AR
 ##  Description: sh script to configure your copy of linux 
 ##
