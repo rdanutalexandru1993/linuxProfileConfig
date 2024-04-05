@@ -43,7 +43,7 @@ help () {
     echo "    python - install python"
     echo "    docker - install docker"
     echo "    github - install and configure github"
-    echo "    envvar - set environment variables"
+    echo "    env    - set environment variables"
     echo "    alias  - set aliases"
     echo "    vim    - install vim"
     echo ""
@@ -51,7 +51,7 @@ help () {
 }
 
 runInstallScript () {
-  local SCRIPTNAME="install_$1.sh"
+local SCRIPTNAME="install_${1}.sh"
 
   echo "$(date) | Running $SCRIPTNAME ... "
 
@@ -81,7 +81,6 @@ main () {
 while [[ $# -gt 0 ]]; do
     case "$1" in
         -m|--modules)
-            echo "$2" 
             MODULES="$2"
             shift 2
             ;;

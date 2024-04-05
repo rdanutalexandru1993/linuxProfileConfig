@@ -1,0 +1,21 @@
+export PS1="\[\e[32m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\]:/../\[\e[37m\]\W\[\e[m\]/-> "
+
+export HDDFROM=/media/$USER/cf35aee0-faeb-40bb-adac-88595e8f71fe/$USER_hdd/ALEXHDD/
+export HDDTO=/media/$USER/alex_hdd/
+
+export WSP_HOME=/media/alex/cf35aee0-faeb-40bb-adac-88595e8f71fe/alex_hdd/2019/github/WSPanalysis
+export WSP_CONFIG=/media/alex/cf35aee0-faeb-40bb-adac-88595e8f71fe/alex_hdd/2019/github/WSPanalysis/config
+export WSP_QINIT=/media/alex/cf35aee0-faeb-40bb-adac-88595e8f71fe/alex_hdd/2019/github/WSPanalysis/config/q.q
+export WSP_SRC_ANALYSE=/media/alex/cf35aee0-faeb-40bb-adac-88595e8f71fe/alex_hdd/2019/github/WSPanalysis/src/analyse.q
+
+export QUANTFINHOME=/media/alex/cf35aee0-faeb-40bb-adac-88595e8f71fe/alex_hdd/2019/github/QuantFin
+
+# Environment variables for UupPLay.sh application 
+export UPPLAY_URL="https://www.youtube.com/watch?v=36tggrpRoTI&list=PLgAMMtt4kf4TXH0r0xINENxAAqFCXGN2t"
+export UPPLAYLOC=/media/alex/cf35aee0-faeb-40bb-adac-88595e8f71fe/alex_hdd/2019/PersonalProg/bash/update_song_playlist/
+export UPPLAYTO=/run/user/1000/gvfs/mtp:host=%5Busb%3A001%2C010%5D/Card/Music/
+
+#Environment variables for syncing HDD
+export SYNCHDD_FROM="/media/alex/cf35aee0-faeb-40bb-adac-88595e8f71fe/fromDirectory/"
+export SYNCHDD_TO="/media/alex/cf35aee0-faeb-40bb-adac-88595e8f71fe/toDirectory/"
+export SYNCHDD_LOG="/tmp/"
