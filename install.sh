@@ -2,7 +2,7 @@
 
 ####################################################################################################
 ##
-##  Year:        2014
+##  Year:        2024
 ##  Author:      AR
 ##  Description: sh script to configure your copy of linux 
 ##
@@ -28,7 +28,7 @@ help () {
     echo "                      with them in the same location"
     echo ""
     echo "  Example:"
-    echo "    $0 --module python docker"
+    echo "    $0 --modules \"python docker\""
     echo ""
     echo "  Available scripts: "
     echo ""
@@ -73,6 +73,7 @@ main () {
 while [[ $# -gt 0 ]]; do
     case "$1" in
         -m|--modules)
+            echo "$2" 
             MODULES="$2"
             shift 2
             ;;
@@ -86,5 +87,9 @@ while [[ $# -gt 0 ]]; do
             ;;
     esac
 done
+
+####################################################################################################
+##  RUNNING MAIN
+####################################################################################################
 
 main "$MODULES"
