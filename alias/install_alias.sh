@@ -32,8 +32,7 @@ main () {
     echo "$(date) | Adding line to source ${NEWENVSRC} to .bashrc ... "
     echo "" >> ${HOME}/.bashrc 
     echo "# Sourcing user environment variables" >> ${HOME}/.bashrc 
-    echo "source ./${NEWENVSRC}" >> ${HOME}/.bashrc 
-    echo "" >> ${HOME}/.bashrc 
+    echo "source ~/${NEWENVSRC}" >> ${HOME}/.bashrc 
   fi
 }
 
