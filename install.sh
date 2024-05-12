@@ -51,18 +51,23 @@ help () {
 }
 
 checkModules () {
-  local VL="$1"
+  local MODULE_ARRAY
+  MODULE_ARRAY="$1"
   # if modules passed is empty, search for pattern and form the modules array 
-  if [[ ! -z "$1" ]]
+  if [[ ! -z "$MODULE_ARRAY" ]]
   then 
-    echo "${VL[@]}"
+    echo "${MODULE_ARRAY[@]}"
   else
-    local RES=( $(find ${PWD} -name "*install_*sh" -type f) )
+    local MODULE_ARRAY=( $(find ${PWD} -name "*install_*sh" -type f) )
     
-    for R in "${RES[@]}"
+    for MODULE in "${MODULE_ARRAY[@]}"
     do
-      local FNAME=$(basename "$R")
+      local FNAME=$(basename "$MODULE")
+      # user passes modules like env python , but when searching for modules we get full paths 
+      # which is why we modify the name of the module to work with the rest of the code
+      # drop install_
       FNAME="${FNAME#install_}"
+      # drop .sh
       FNAME="${FNAME%.sh}"
       echo "$FNAME"
     done
@@ -85,6 +90,7 @@ runInstallScript () {
 }
 
 main () {
+  # if the passed array of modules is empty, search for install modules in local working directory 
   local MODULES=( $(checkModules "$1") ) 
 
   for M in "${MODULES[@]}"
