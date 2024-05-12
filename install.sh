@@ -50,12 +50,31 @@ help () {
     echo "##########################################################################################"
 }
 
+checkModules () {
+  local VL="$1"
+  # if modules passed is empty, search for pattern and form the modules array 
+  if [[ ! -z "$1" ]]
+  then 
+    echo "${VL[@]}"
+  else
+    local RES=( $(find ${PWD} -name "*install_*sh" -type f) )
+    
+    for R in "${RES[@]}"
+    do
+      local FNAME=$(basename "$R")
+      FNAME="${FNAME#install_}"
+      FNAME="${FNAME%.sh}"
+      echo "$FNAME"
+    done
+  fi 
+}
+
 runInstallScript () {
-local SCRIPTNAME="install_${1}.sh"
+  local SCRIPTNAME="install_${1}.sh"
 
   echo "$(date) | Running $SCRIPTNAME ... "
 
-  local SCRIPTPATH=$(find -type f -name "$SCRIPTNAME")
+  local SCRIPTPATH=$(find ${PWD} -type f -name "$SCRIPTNAME")
   
   if [[ -z "$SCRIPTPATH" ]]
   then 
@@ -66,7 +85,7 @@ local SCRIPTNAME="install_${1}.sh"
 }
 
 main () {
-  local MODULES=($1)
+  local MODULES=( $(checkModules "$1") ) 
 
   for M in "${MODULES[@]}"
   do 
@@ -99,4 +118,4 @@ done
 ##  RUNNING MAIN
 ####################################################################################################
 
-main "$MODULES"
+main "${MODULES}"
