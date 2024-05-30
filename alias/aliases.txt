@@ -1,1 +1,1 @@
-alias TEST="ls -la" 
+alias SHOWFILES="ls -la" 

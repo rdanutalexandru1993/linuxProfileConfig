@@ -19,10 +19,7 @@
 
 main () {
   echo "$(date) | Installing python3 ..."
-  sudo apt update 
-  sudo apt upgrade 
-  sudo apt install python3 
-  sudo apt install python3-pip 
+  sudo apt install python3 python3-pip -y 
 
   if [[ $(dpkg -l | grep python3 | wc -l) -gt 0 && $(dpkg -l | grep python3-pip | wc -l) -gt 0 ]]
   then

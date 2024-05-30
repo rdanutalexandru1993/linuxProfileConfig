@@ -17,7 +17,7 @@
 
 main () {
   local PTH=$(find ${INSTALL_HOME} -name aliases.txt -type f)
-  local NEWENVSRC=.bash_${USER}_alias
+  local NEWENVSRC=".bash_${USER}_alias"
 
   echo "$(date) | Setting aliases ... "
   cp ${PTH} ${HOME}/${NEWENVSRC}

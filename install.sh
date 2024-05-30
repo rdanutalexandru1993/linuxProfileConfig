@@ -90,13 +90,29 @@ runInstallScript () {
 }
 
 main () {
+  echo ""
+  echo "###########################################################################################"
+  echo "  START"
+  echo "###########################################################################################"
+  echo ""
+  sudo apt update 
+  sudo apt upgrade -y 
+  sudo apt dist-upgrade -y 
   # if the passed array of modules is empty, search for install modules in local working directory 
   local MODULES=( $(checkModules "$1") ) 
+
+  echo "${MODULES}"
 
   for M in "${MODULES[@]}"
   do 
     runInstallScript "$M"
   done
+
+  echo ""
+  echo "###########################################################################################"
+  echo "  END"
+  echo "###########################################################################################"
+  echo ""
 }
 
 ####################################################################################################

@@ -35,9 +35,7 @@ configureUserEmail () {
 
 main () {
   echo "$(date) | Installing github ..."
-  sudo apt update 
-  sudo apt upgrade 
-  sudo apt install git-all
+  sudo apt install git-all -y 
 
   configureUserEmail "username"
   configureUserEmail "email"
