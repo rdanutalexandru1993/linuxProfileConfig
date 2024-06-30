@@ -30,6 +30,9 @@ main () {
     else 
       echo "$(date) | Installing packages specified in the requirements.txt ... "
       sudo pip ${REQUIREMENTS_LOCATION}
+      
+      echo "$(date)| Installing Jupyter notebook ... "
+      pip install jupyter 
     fi
   else  
     echo "$(date) | Something went wrong durinh python3 installation ... "
